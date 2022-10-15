@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/manutromero/dollar-notify-bot/issues"
   },
-  "homepage": "https://github.com/manutromero/dollar-notify-bot#readme"
+  "homepage": "https://github.com/manutromero/dollar-notify-bot#readme",
+  "devDependencies": {
+    "@vercel/node": "^2.5.24"
+  }
 }
