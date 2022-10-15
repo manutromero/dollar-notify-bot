@@ -1,6 +1,6 @@
 const http = require('http');
 
-const hostname = '127.0.0.1';
+const hostname = 'dollar-notify-9cy6f0tr9-manutromero.vercel.app';
 const port = 3000;
 
 const server = http.createServer((req, res) => {
