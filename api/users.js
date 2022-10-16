@@ -1,4 +1,6 @@
 
+const axios = require('axios');
+
 module.exports = (req, res) => {
 
     if (req.method  === "GET"){
@@ -7,7 +9,10 @@ module.exports = (req, res) => {
             res.send(
                 {name:"manuel", location: "bogota" }
             )
-            fetch('https://api.telegram.org/bot5509477086:AAElj-pA5Zg9KGT9AcrV--uPwK-OxF6peUg/sendMessage?chat_id=-802012750&text=Ejecutando Intervalo')
+            axios.get('https://api.telegram.org/bot5509477086:AAElj-pA5Zg9KGT9AcrV--uPwK-OxF6peUg/sendMessage?chat_id=-802012750&text=Ejecutando Intervalo').then(resp => {
+
+                console.log(resp.data);
+            });
         },5000)
 
 
