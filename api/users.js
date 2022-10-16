@@ -1,12 +1,11 @@
 
 module.exports = (req, res) => {
 
-
     if (req.method  === "GET"){
 
         setTimeout(()=>{
             res.send(
-                {name:"manuel", location: "bogota", index: `${candles}` }
+                {name:"manuel", location: "bogota" }
             )
         },1000)
 
