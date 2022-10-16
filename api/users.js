@@ -1,14 +1,19 @@
 
 const axios = require('axios');
 
-module.exports = (req, res) => {
+module.exports = () => {
 
 
-
-
-    if (req.method  === "GET"){
+   const  helloWorld = ()=>{
+        console.log("Hola Mundo")
+    }
          
-        // setInterval(()=>{
+   
+   
+    setImmediate(()=>{
+        helloWorld()
+    },5000)
+    // setInterval(()=>{
            
         //     axios.get('https://api.telegram.org/bot5509477086:AAElj-pA5Zg9KGT9AcrV--uPwK-OxF6peUg/sendMessage?chat_id=-802012750&text=Ejecutando Intervalo').then(resp => {
     
@@ -16,14 +21,6 @@ module.exports = (req, res) => {
         //     });
         // },5000)
 
-        res.send(
-            {name:"manuel 3", location: "bogota" }
-        )
-    }else{
-        const {name, location} = req.body;
-
-        res.send({status: "User created", name, location})
-    }
-
+  
     
 }
