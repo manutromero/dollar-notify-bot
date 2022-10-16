@@ -1,7 +1,7 @@
 
 const axios = require('axios');
 
-module.exports = () => {
+module.exports = (res, req) => {
 
 
    const  helloWorld = ()=>{
@@ -22,5 +22,5 @@ module.exports = () => {
         // },5000)
 
   
-    
+     return res.end(`Hello`);
 }
