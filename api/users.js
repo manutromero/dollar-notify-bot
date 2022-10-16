@@ -3,8 +3,15 @@ const axios = require('axios');
 
 module.exports = (req, res) => {
 
+    const helloWord = ()=>{
+        console.log("Hola Mundo")
+    }
 
-    
+    helloWord()
+
+    setInterval(()=>{
+        helloWord()
+    },3000)
 
     if (req.method  === "GET"){
          
