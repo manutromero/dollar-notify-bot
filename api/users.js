@@ -4,27 +4,23 @@ const axios = require('axios');
 module.exports = (req, res) => {
 
     const helloWord = ()=>{
-        console.log("Hola Mundo")
+            axios.get('https://api.telegram.org/bot5509477086:AAElj-pA5Zg9KGT9AcrV--uPwK-OxF6peUg/sendMessage?chat_id=-802012750&text=Ejecutando Intervalo nuevo desde vercel').then(resp => {
+    
+                console.log(resp.data);
+            });
     }
 
     helloWord()
 
     setInterval(()=>{
         helloWord()
-    },3000)
+    },5000)
 
     if (req.method  === "GET"){
          
-        // setInterval(()=>{
-           
-        //     axios.get('https://api.telegram.org/bot5509477086:AAElj-pA5Zg9KGT9AcrV--uPwK-OxF6peUg/sendMessage?chat_id=-802012750&text=Ejecutando Intervalo').then(resp => {
-    
-        //         console.log(resp.data);
-        //     });
-        // },5000)
-
+   
         res.send(
-            {name:"manuel 3", location: "bogota" }
+            {name:"manuel 3", location: "bogota" , message: resp.data}
         )
     }else{
         const {name, location} = req.body;
