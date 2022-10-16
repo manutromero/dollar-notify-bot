@@ -4,7 +4,7 @@ const axios = require('axios');
 module.exports = (req, res) => {
 
     const helloWord = async ()=>{
-            await axios.get('https://api.telegram.org/bot5509477086:AAElj-pA5Zg9KGT9AcrV--uPwK-OxF6peUg/sendMessage?chat_id=-802012750&text=Ejecutando Intervalo nuevo desde vercel').then(resp => {
+            await axios.get('https://api.telegram.org/bot5509477086:AAElj-pA5Zg9KGT9AcrV--uPwK-OxF6peUg/sendMessage?chat_id=-802012750&text=Se envia cada 10 minutos').then(resp => {
     
                 console.log(resp.data);
 
@@ -18,7 +18,7 @@ module.exports = (req, res) => {
 
     setInterval(()=>{
         helloWord()
-    },5000)
+    },600000)
 
 
     
