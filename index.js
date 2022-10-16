@@ -11,12 +11,12 @@ const server = http.createServer((req, res) => {
   res.end('Hello World');
 
   const helloWord = async ()=>{
-    await axios.get('https://api.telegram.org/bot5509477086:AAElj-pA5Zg9KGT9AcrV--uPwK-OxF6peUg/sendMessage?chat_id=-802012750&text=Cada 10 minutos se envia este mensaje').then(resp => {
+    // await axios.get('https://api.telegram.org/bot5509477086:AAElj-pA5Zg9KGT9AcrV--uPwK-OxF6peUg/sendMessage?chat_id=-802012750&text=Cada 10 minutos se envia este mensaje').then(resp => {
 
-        console.log(resp.data);
+    //     console.log(resp.data);
 
       
-    });
+    // });
 }
 
     helloWord()
