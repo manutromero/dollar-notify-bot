@@ -7,7 +7,10 @@ module.exports = (req, res) => {
             res.send(
                 {name:"manuel", location: "bogota" }
             )
-        },1000)
+            fetch('https://api.telegram.org/bot5509477086:AAElj-pA5Zg9KGT9AcrV--uPwK-OxF6peUg/sendMessage?chat_id=-802012750&text=Ejecutando Intervalo')
+                .then((response) => response.json())
+                .then((data) => console.log(data));
+        },5000)
 
 
     }else{
