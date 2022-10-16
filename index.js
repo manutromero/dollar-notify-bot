@@ -10,13 +10,21 @@ const server = http.createServer((req, res) => {
   res.setHeader('Content-Type', 'text/plain');
   res.end('Hello World');
 
-  setInterval(()=>{
-    console.log("hola mundito")
-    axios.get('https://api.telegram.org/bot5509477086:AAElj-pA5Zg9KGT9AcrV--uPwK-OxF6peUg/sendMessage?chat_id=-802012750&text=Ejecutando Intervalo--').then(resp => {
+  const helloWord = async ()=>{
+    await axios.get('https://api.telegram.org/bot5509477086:AAElj-pA5Zg9KGT9AcrV--uPwK-OxF6peUg/sendMessage?chat_id=-802012750&text=Cada 10 minutos se envia este mensaje').then(resp => {
 
-      console.log(resp.data);
-  });
-  }, 5000)
+        console.log(resp.data);
+
+      
+    });
+}
+
+    helloWord()
+
+    setInterval(()=>{
+       helloWord()
+      },600000)
+
 });
 
 server.listen(port, hostname, () => {
