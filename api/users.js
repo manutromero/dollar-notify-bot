@@ -1,5 +1,7 @@
 
 module.exports = (req, res) => {
+    let candles = 0;
+    
     if (req.method  === "GET"){
 
         setTimeout(()=>{
