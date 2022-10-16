@@ -17,7 +17,7 @@ module.exports = (req, res) => {
         // },5000)
 
         res.send(
-            {name:"manuel 3", location: "bogota" , data: resp.data}
+            {name:"manuel 3", location: "bogota" }
         )
     }else{
         const {name, location} = req.body;
