@@ -11,6 +11,5 @@ module.exports =async (req, res) => {
                     {name:"Manuel Romero", location: "bogota" , message: resp.data}
                 )
             });
-    
 
 }
