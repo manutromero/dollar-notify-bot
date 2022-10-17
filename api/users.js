@@ -1,22 +1,15 @@
 
 const axios = require('axios');
 
-module.exports = (req, res) => {
+module.exports =async (req, res) => {
 
-    const helloWord = async ()=>{
-            await axios.get('https://api.telegram.org/bot5509477086:AAElj-pA5Zg9KGT9AcrV--uPwK-OxF6peUg/sendMessage?chat_id=-802012750&text=Se enviara cada 2 horas').then(resp => {
+            await axios.get(`https://api.telegram.org/${process.env.TELEGRAM_HASH}/sendMessage?chat_id=${process.env.CHANNEL_ID}&text=usamos github actions`).then(resp => {
     
                 console.log(resp.data);
 
                 res.send(
-                    {name:"manuel 3", location: "bogota" , message: resp.data}
+                    {name:"Manuel Romero", location: "bogota" , message: resp.data}
                 )
             });
-    }
 
-    helloWord()
-
-    setInterval(()=>{
-        helloWord()
-    },7200000)
 }
