@@ -68,11 +68,10 @@ module.exports =async (req, res) => {
 
 
 
+                    
 
-
-
-                    -Dolar Hoy: ${dolarHoy}.
-                    -Ultima tarifa vigente: ${dolarAyer}`
+                    --- Dolar Hoy: ${dolarHoy}.
+                    --- Ultima tarifa vigente: ${dolarAyer}`
                 
                 
                 ).then(resp => {
