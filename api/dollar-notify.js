@@ -32,7 +32,9 @@ module.exports =async (req, res) => {
 
             let dolarHoy = responseDollar[0].valor
             let dolarAyer = responseDollarYesterday[0].valor
-
+            res.send(
+                {dolarHoy: dolarHoy,dolarAyer:dolarAyer }
+            )
             if(dolarHoy < dolarAyer){
 
                 await axios.get(`https://api.telegram.org/${process.env.TELEGRAM_HASH}/sendMessage?chat_id=${process.env.CHANNEL_ID}&text=El Dolar hoy esta mas barato que la utlima tarifa vigente.
@@ -69,7 +71,6 @@ module.exports =async (req, res) => {
                 NO es un buen dia para pagar tus tarjetas: :(
                 
 
-                   
 
                  
 
