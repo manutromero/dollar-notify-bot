@@ -30,14 +30,30 @@ module.exports =async (req, res) => {
 
             });
 
+            let dolarHoy = responseDollar[0].valor
+            let dolarAyer = responseDollarBackDay[0].valor
 
-            await axios.get(`https://api.telegram.org/${process.env.TELEGRAM_HASH}/sendMessage?chat_id=${process.env.CHANNEL_ID}&text=Pruebas desde vercel y github`).then(resp => {
+            if(dolarHoy < dolarAyer){
+
+                await axios.get(`https://api.telegram.org/${process.env.TELEGRAM_HASH}/sendMessage?chat_id=${process.env.CHANNEL_ID}&text=El Dolar hoy esta mas barato que la utlima tarifa vigente *Intenta pagar tus tarjetas*: Dolar Hoy ${dolarHoy}. Ultima tarifa vigente: ${dolarAyer}`).then(resp => {
     
-                console.log(resp.data);
+               
+                    res.send(
+                        {name:"Manuel Romero", location: "bogota" , message: resp.data, responseDollar: responseDollar, responseDollarBackDay:responseDollarBackDay}
+                    )
+                });
 
-                res.send(
-                    {name:"Manuel Romero", location: "bogota" , message: resp.data, responseDollar: responseDollar, responseDollarBackDay:responseDollarBackDay}
-                )
-            });
+
+            }{
+                await axios.get(`https://api.telegram.org/${process.env.TELEGRAM_HASH}/sendMessage?chat_id=${process.env.CHANNEL_ID}&text=El Dolar hoy esta mas costoso que la utlima tarifa vigente *No es un buen dia para pagar tus tarjetas*: Dolar Hoy ${dolarHoy}. Ultima tarifa vigente: ${dolarAyer}`).then(resp => {
+    
+               
+                    res.send(
+                        {name:"Manuel Romero", location: "bogota" , message: resp.data, responseDollar: responseDollar, responseDollarBackDay:responseDollarBackDay}
+                    )
+                });
+            }
+
+         
 
 }
