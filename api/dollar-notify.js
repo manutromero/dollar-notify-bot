@@ -32,25 +32,56 @@ module.exports =async (req, res) => {
 
             let dolarHoy = responseDollar[0].valor
             let dolarAyer = responseDollarYesterday[0].valor
-   
-
+            res.send(
+                {dolarHoy: dolarHoy,dolarAyer:dolarAyer }
+            )
             if(dolarHoy < dolarAyer){
 
-                await axios.get(`https://api.telegram.org/${process.env.TELEGRAM_HASH}/sendMessage?chat_id=${process.env.CHANNEL_ID}&text=Dolar barato`).then(resp => {
+                await axios.get(`https://api.telegram.org/${process.env.TELEGRAM_HASH}/sendMessage?chat_id=${process.env.CHANNEL_ID}&text=El Dolar hoy esta mas barato que la utlima tarifa vigente.
+
+
+
+                
+                Intenta pagar tus tarjetas :): 
+                
+                
+
+                    -- Dolar Hoy ${dolarHoy} $USD. 
+                    -- Ultima tarifa vigente: ${dolarAyer} $USD`
+                
+                
+                ).then(resp => {
     
                
                     res.send(
-                        { messageTelegram: resp.data, responseDollar: responseDollar, responseDollarYesterday: responseDollarYesterday}
+                        { Status: "200"}
                     )
                 });
 
 
-            }else{
+            }else {
+
+
                              
-                await axios.get(`https://api.telegram.org/${process.env.TELEGRAM_HASH}/sendMessage?chat_id=${process.env.CHANNEL_ID}&text=Dolar caro`).then(resp => {
+                await axios.get(`https://api.telegram.org/${process.env.TELEGRAM_HASH}/sendMessage?chat_id=${process.env.CHANNEL_ID}&text=El Dolar hoy esta mas costoso que la utlima tarifa vigente.
+                
+                
+
+                
+                NO es un buen dia para pagar tus tarjetas: :(
+                
+
+
+                 
+
+                    -- Dolar Hoy:  ${dolarHoy} $USD.
+                    -- Ultima tarifa vigente:  ${dolarAyer} $USD`
+                
+                 
+                ).then(resp => {
                
                     res.send(
-                        { messageTelegram: resp.data, responseDollar: responseDollar, responseDollarYesterday: responseDollarYesterday}
+                        { Status: "200"}
                     )
                 });
             }
