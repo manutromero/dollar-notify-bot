@@ -58,12 +58,12 @@ module.exports =async (req, res) => {
 
 
             }{
-                await axios.get(`https://api.telegram.org/${process.env.TELEGRAM_HASH}/sendMessage?chat_id=${process.env.CHANNEL_ID}&text=El Dolar hoy esta mas costoso que la utlima tarifa vigente.
+                await axios.get(`https://api.telegram.org/${process.env.TELEGRAM_HASH}/sendMessage?chat_id=${process.env.CHANNEL_ID}&parse_mode=MarkdownV2&text=El Dolar hoy esta mas costoso que la utlima tarifa vigente.
                 
                 
 
                 
-                NO es un buen dia para pagar tus tarjetas: :(
+                **NO es un buen dia para pagar tus tarjetas:** :(
                 
 
 
