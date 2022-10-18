@@ -54,7 +54,7 @@ module.exports =async (req, res) => {
     
                
                     res.send(
-                        { messageTelegram: resp.data, responseDollar: responseDollar, responseDollarYesterday:responseDollarYesterday}
+                        { messageTelegram: resp.data, responseDollar: responseDollar, responseDollarYesterday: responseDollarYesterday}
                     )
                 });
 
@@ -74,14 +74,14 @@ module.exports =async (req, res) => {
 
                  
 
-                    -- Dolar Hoy:  ${dolarHoy} $USD.
+                    -- Dolar Hoy:  ${dolarHoy} $USD
                     -- Ultima tarifa vigente:  ${dolarAyer} $USD`
                 
                  
                 ).then(resp => {
                
                     res.send(
-                        {messageTelegram: resp.data, responseDollar: responseDollar, responseDollarYesterday:responseDollarYesterday}
+                        {messageTelegram: resp.data, responseDollar: responseDollar, responseDollarYesterday: responseDollarYesterday}
                     )
                 });
             }
