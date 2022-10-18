@@ -43,7 +43,7 @@ module.exports =async (req, res) => {
                 Intenta pagar tus tarjetas :): 
                 
                 
-                
+
                     - Dolar Hoy ${dolarHoy}. 
                     - Ultima tarifa vigente: ${dolarAyer}`
                 
@@ -63,12 +63,12 @@ module.exports =async (req, res) => {
                 
 
                 
-                NO es un buen dia para pagar tus tarjetas: 
+                <i>NO es un buen dia para pagar tus tarjetas: </i>
                 
 
 
-                    - Dolar Hoy ${dolarHoy}.
-                    - Ultima tarifa vigente: ${dolarAyer}`
+                    - **Dolar Hoy:** ${dolarHoy}.
+                    - **Ultima tarifa vigente:** ${dolarAyer}`
                 
                 
                 ).then(resp => {
