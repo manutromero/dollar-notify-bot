@@ -2,23 +2,15 @@
     "routes":[
         {
             "src": "/",
-            "dest": "/api/users.js"
+            "dest": "/api/dollar-notify.js"
         },
         {
-            "src": "/users",
+            "src": "/dollar",
             "methods":[
                 "POST",
                 "GET"
             ],
-            "dest": "/api/users.js"
-        },
-        {
-            "src": "/test",
-            "methods":[
-                "POST",
-                "GET"
-            ],
-            "dest": "/index.js"
+            "dest": "/api/dollar-notify.js"
         }
     ]
 }
