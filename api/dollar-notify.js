@@ -35,56 +35,56 @@ module.exports =async (req, res) => {
             res.send(
                 {dolarHoy: dolarHoy,dolarAyer:dolarAyer }
             )
-            if(dolarHoy < dolarAyer){
+            // if(dolarHoy < dolarAyer){
 
-                await axios.get(`https://api.telegram.org/${process.env.TELEGRAM_HASH}/sendMessage?chat_id=${process.env.CHANNEL_ID}&text=El Dolar hoy esta mas barato que la utlima tarifa vigente.
+            //     await axios.get(`https://api.telegram.org/${process.env.TELEGRAM_HASH}/sendMessage?chat_id=${process.env.CHANNEL_ID}&text=El Dolar hoy esta mas barato que la utlima tarifa vigente.
 
 
 
                 
-                Intenta pagar tus tarjetas :): 
+            //     Intenta pagar tus tarjetas :): 
                 
                 
 
-                    -- Dolar Hoy ${dolarHoy} $USD. 
-                    -- Ultima tarifa vigente: ${dolarAyer} $USD`
+            //         -- Dolar Hoy ${dolarHoy} $USD. 
+            //         -- Ultima tarifa vigente: ${dolarAyer} $USD`
                 
                 
-                ).then(resp => {
+            //     ).then(resp => {
     
                
-                    res.send(
-                        { messageTelegram: resp.data, responseDollar: responseDollar, responseDollarYesterday:responseDollarYesterday}
-                    )
-                });
+            //         res.send(
+            //             { messageTelegram: resp.data, responseDollar: responseDollar, responseDollarYesterday:responseDollarYesterday}
+            //         )
+            //     });
 
 
-            }{
+            // }{
 
 
                              
-                await axios.get(`https://api.telegram.org/${process.env.TELEGRAM_HASH}/sendMessage?chat_id=${process.env.CHANNEL_ID}&text=El Dolar hoy esta mas costoso que la utlima tarifa vigente.
+            //     await axios.get(`https://api.telegram.org/${process.env.TELEGRAM_HASH}/sendMessage?chat_id=${process.env.CHANNEL_ID}&text=El Dolar hoy esta mas costoso que la utlima tarifa vigente.
                 
                 
 
                 
-                NO es un buen dia para pagar tus tarjetas: :(
+            //     NO es un buen dia para pagar tus tarjetas: :(
                 
 
 
                  
 
-                    -- Dolar Hoy:  ${dolarHoy} $USD.
-                    -- Ultima tarifa vigente:  ${dolarAyer} $USD`
+            //         -- Dolar Hoy:  ${dolarHoy} $USD.
+            //         -- Ultima tarifa vigente:  ${dolarAyer} $USD`
                 
                  
-                ).then(resp => {
+            //     ).then(resp => {
                
-                    res.send(
-                        {messageTelegram: resp.data, responseDollar: responseDollar, responseDollarYesterday:responseDollarYesterday}
-                    )
-                });
-            }
+            //         res.send(
+            //             {messageTelegram: resp.data, responseDollar: responseDollar, responseDollarYesterday:responseDollarYesterday}
+            //         )
+            //     });
+            // }
 
          
 
