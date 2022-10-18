@@ -58,6 +58,9 @@ module.exports =async (req, res) => {
 
 
             }{
+
+                var message = "**Mensaje en negrilla**"
+
                 await axios.get(`https://api.telegram.org/${process.env.TELEGRAM_HASH}/sendMessage?chat_id=${process.env.CHANNEL_ID}&text=El Dolar hoy esta mas costoso que la utlima tarifa vigente.
                 
                 
@@ -66,14 +69,14 @@ module.exports =async (req, res) => {
                 NO es un buen dia para pagar tus tarjetas: :(
                 
 
-
+                    ${message}
 
 
 
                     --- Dolar Hoy: ${dolarHoy}.
                     --- Ultima tarifa vigente: ${dolarAyer}`
                 
-                
+                 
                 ).then(resp => {
                
                     res.send(
