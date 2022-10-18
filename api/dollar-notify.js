@@ -35,10 +35,7 @@ module.exports =async (req, res) => {
    
             if(dolarHoy < dolarAyer){
 
-                await axios.get(`https://api.telegram.org/${process.env.TELEGRAM_HASH}/sendMessage?chat_id=${process.env.CHANNEL_ID}&text=Dolar barato`
-                
-                
-                ).then(resp => {
+                await axios.get(`https://api.telegram.org/${process.env.TELEGRAM_HASH}/sendMessage?chat_id=${process.env.CHANNEL_ID}&text=Dolar barato`).then(resp => {
     
                
                     res.send(
@@ -51,13 +48,10 @@ module.exports =async (req, res) => {
 
 
                              
-                await axios.get(`https://api.telegram.org/${process.env.TELEGRAM_HASH}/sendMessage?chat_id=${process.env.CHANNEL_ID}&text=Dolar caro`
-                
-                 
-                ).then(resp => {
+                await axios.get(`https://api.telegram.org/${process.env.TELEGRAM_HASH}/sendMessage?chat_id=${process.env.CHANNEL_ID}&text=Dolar caro`).then(resp => {
                
                     res.send(
-                        {messageTelegram: resp.data, responseDollar: responseDollar, responseDollarYesterday: responseDollarYesterday}
+                        { messageTelegram: resp.data, responseDollar: responseDollar, responseDollarYesterday: responseDollarYesterday}
                     )
                 });
             }
