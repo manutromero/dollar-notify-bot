@@ -4,7 +4,7 @@ const axios = require('axios');
 module.exports =async (req, res) => {
 
             let responseDollar;
-            let responseDollarBackDay;
+            let responseDollarYesterday;
 
 
             let Day = new Date().getDate()
@@ -24,14 +24,14 @@ module.exports =async (req, res) => {
             
             await axios.get(`https://www.datos.gov.co/resource/ceyp-9c7c.json?vigenciahasta=${year}-${month}-${vigenciadesde}T00:00:00.000`).then(response => {
              
-                responseDollarBackDay = response.data
+                responseDollarYesterday = response.data
                                
               
 
             });
 
             let dolarHoy = responseDollar[0].valor
-            let dolarAyer = responseDollarBackDay[0].valor
+            let dolarAyer = responseDollarYesterday[0].valor
 
             if(dolarHoy < dolarAyer){
 
@@ -52,7 +52,7 @@ module.exports =async (req, res) => {
     
                
                     res.send(
-                        {name:"Manuel Romero", location: "bogota" , message: resp.data, responseDollar: responseDollar, responseDollarBackDay:responseDollarBackDay}
+                        { messageTelegram: resp.data, responseDollar: responseDollar, responseDollarYesterday:responseDollarYesterday}
                     )
                 });
 
@@ -68,17 +68,16 @@ module.exports =async (req, res) => {
 
 
 
-                    
+
 
                     --- Dolar Hoy: ${dolarHoy}.
                     --- Ultima tarifa vigente: ${dolarAyer}`
                 
                 
                 ).then(resp => {
-    
                
                     res.send(
-                        {name:"Manuel Romero", location: "bogota" , message: resp.data, responseDollar: responseDollar, responseDollarBackDay:responseDollarBackDay}
+                        {messageTelegram: resp.data, responseDollar: responseDollar, responseDollarYesterday:responseDollarYesterday}
                     )
                 });
             }
