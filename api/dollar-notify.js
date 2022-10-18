@@ -54,12 +54,12 @@ module.exports =async (req, res) => {
     
                
                     res.send(
-                        { Status: "200"}
+                        { messageTelegram: resp.data, responseDollar: responseDollar, responseDollarYesterday:responseDollarYesterday}
                     )
                 });
 
 
-            }else {
+            }else{
 
 
                              
@@ -81,7 +81,7 @@ module.exports =async (req, res) => {
                 ).then(resp => {
                
                     res.send(
-                        { Status: "200"}
+                        {messageTelegram: resp.data, responseDollar: responseDollar, responseDollarYesterday:responseDollarYesterday}
                     )
                 });
             }
