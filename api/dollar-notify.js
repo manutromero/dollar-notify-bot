@@ -4,12 +4,30 @@ const axios = require('axios');
 module.exports =async (req, res) => {
 
             let responseDollar;
+            let responseDollarBackDay;
 
 
+            let Day = new Date().getDate()
+            let month = new Date().getMonth() + 1
+            let year = new Date().getFullYear()
 
-            await axios.get(`https://www.datos.gov.co/resource/ceyp-9c7c.json?vigenciahasta=2022-10-18T00:00:00.000`).then(response => {
+
+          const vigenciadesde =  await axios.get(`https://www.datos.gov.co/resource/ceyp-9c7c.json?vigenciahasta=${year}-${month}-${Day}T00:00:00.000`).then(response => {
+
                 responseDollar = response.data
-               
+                               
+                let vigenciadianterior = new Date(response.data[0].vigenciadesde).getDate() - 1 
+
+                return vigenciadianterior
+            });
+
+            
+            await axios.get(`https://www.datos.gov.co/resource/ceyp-9c7c.json?vigenciahasta=${year}-${month}-${vigenciadesde}T00:00:00.000`).then(response => {
+             
+                responseDollarBackDay = response.data
+                               
+              
+
             });
 
 
@@ -18,7 +36,7 @@ module.exports =async (req, res) => {
                 console.log(resp.data);
 
                 res.send(
-                    {name:"Manuel Romero", location: "bogota" , message: resp.data, responseDollar: responseDollar}
+                    {name:"Manuel Romero", location: "bogota" , message: resp.data, responseDollar: responseDollar, responseDollarBackDay:responseDollarBackDay}
                 )
             });
 
