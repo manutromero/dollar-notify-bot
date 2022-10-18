@@ -44,8 +44,8 @@ module.exports =async (req, res) => {
                 
                 
 
-                    - Dolar Hoy ${dolarHoy}. 
-                    - Ultima tarifa vigente: ${dolarAyer}`
+                    -- Dolar Hoy ${dolarHoy} $USD. 
+                    -- Ultima tarifa vigente: ${dolarAyer} $USD`
                 
                 
                 ).then(resp => {
@@ -59,6 +59,8 @@ module.exports =async (req, res) => {
 
             }{
 
+
+                             
                 await axios.get(`https://api.telegram.org/${process.env.TELEGRAM_HASH}/sendMessage?chat_id=${process.env.CHANNEL_ID}&text=El Dolar hoy esta mas costoso que la utlima tarifa vigente.
                 
                 
@@ -69,10 +71,10 @@ module.exports =async (req, res) => {
 
                    
 
-                    '%3Ci%3Ehola%20perros%3C%2Fi%3E'
+                 
 
-                    --- Dolar Hoy: $USD ${dolarHoy}.
-                    --- Ultima tarifa vigente: $USD ${dolarAyer}`
+                    -- Dolar Hoy:  ${dolarHoy} $USD.
+                    -- Ultima tarifa vigente:  ${dolarAyer} $USD`
                 
                  
                 ).then(resp => {
