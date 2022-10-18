@@ -12,4 +12,4 @@ jobs:
     steps:
       - name: cURL request
         # Hit the webhook endpoint to rebuild  from the "main" branch
-        run: curl https://dollar-notify-bot.vercel.app/users
+        run: curl https://dollar-notify-bot.vercel.app/dollar
