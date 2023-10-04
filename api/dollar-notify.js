@@ -66,7 +66,7 @@ module.exports =async (req, res) => {
                 
 
                 
-                NO es un buen dia para pagar tus tarjetas: :(
+                NO es un buen dia para pagar tus tarjetas: :( :(
                 
 
 
